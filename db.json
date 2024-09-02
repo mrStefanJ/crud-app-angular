@@ -1,0 +1,16 @@
+{
+  "employees": [
+    {
+      "id": "217e",
+      "firstName": "Stefan",
+      "lastName": "Joncic",
+      "email": "stefan@gmail.com",
+      "dob": "2024-09-01T22:00:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Google",
+      "experience": 4,
+      "package": 8
+    }
+  ]
+}

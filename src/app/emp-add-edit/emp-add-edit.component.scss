@@ -1,0 +1,28 @@
+.employee_title{
+    padding: 10px 0 0 10px;
+}
+
+.employee__form {
+    padding: 10px 20px;
+}
+
+.content{
+    padding-top: 10px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+.action{
+    display: flex;
+    padding: 0 25px 20px;
+    button {
+        flex: 1;
+    }
+}
