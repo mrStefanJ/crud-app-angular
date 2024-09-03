@@ -12,8 +12,14 @@
   }
 }
 
-.table-container{
+.table-container {
   overflow: auto;
+}
+
+.row--center {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .action {

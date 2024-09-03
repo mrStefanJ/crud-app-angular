@@ -1,4 +1,4 @@
-import { Component, AfterViewInit , ViewChild, inject } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -12,7 +12,6 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DatePipe } from '@angular/common';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { CoreService } from './core/core.service';
 
 @Component({
@@ -33,7 +32,7 @@ import { CoreService } from './core/core.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit  {
+export class AppComponent implements AfterViewInit {
   displayedColumns: string[] = [
     'id',
     'firstName',
@@ -47,7 +46,7 @@ export class AppComponent implements AfterViewInit  {
     'package',
     'action',
   ];
-  dataSource = new  MatTableDataSource<any>();
+  dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -60,6 +59,7 @@ export class AppComponent implements AfterViewInit  {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
@@ -81,8 +81,8 @@ export class AppComponent implements AfterViewInit  {
     this._empService.getEmployeeList().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
-        this.dataSource.sort = this.sort; // Assign MatSort to data source
-        this.dataSource.paginator = this.paginator; // Assign MatPaginator to data source
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       },
       error: (err) => {
         console.error('Error fetching employee data:', err);
