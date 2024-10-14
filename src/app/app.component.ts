@@ -69,7 +69,7 @@ export class AppComponent implements AfterViewInit {
   openAddEditEmpForm() {
     const dialogRef = this._dialog.open(EmpAddEditComponent);
     dialogRef.afterClosed().subscribe({
-      next: (val) => {
+      next: (val: any) => {
         if (val) {
           this.getEmployeeList();
         }
@@ -79,12 +79,12 @@ export class AppComponent implements AfterViewInit {
 
   getEmployeeList() {
     this._empService.getEmployeeList().subscribe({
-      next: (res) => {
+      next: (res: any) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error fetching employee data:', err);
       },
     });
@@ -101,11 +101,11 @@ export class AppComponent implements AfterViewInit {
 
   deleteEmployee(id: number) {
     this._empService.deleteEmployee(id).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         this._coreService.openSnackBar('Employee deleted!', 'done');
         this.getEmployeeList();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error deleting employee:', err);
       },
     });
